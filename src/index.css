@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-[#f6f8fa] text-[#1f2328] dark:bg-[#0c0d12] dark:text-[#e1e4ea] transition-colors duration-200;
+  }
+}
+
+/* Custom Scrollbar for high density layout */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#f1f3f5] dark:bg-[#13151f];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-[#2b3040] rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-[#3d445c];
+}
+
+/* Base custom font overrides for Hindi/Bilingual readability */
+[lang="hi"] {
+  font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif;
+}
+
+/* Keyboard active navigation item cybernetic highlighting */
+.keyboard-active-item {
+  @apply ring-1 ring-cyan-500/40 dark:ring-cyan-400/30 scale-[1.008] bg-slate-100 dark:bg-[#181d2c] border-cyan-500 dark:border-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.1)] transition-all duration-150;
+}
+
+/* Low-bandwidth layouts drop smooth shadows & animations to keep performance and rendering cheap */
+.low-bandwidth-active * {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
